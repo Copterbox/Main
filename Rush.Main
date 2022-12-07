@@ -1,5 +1,4 @@
 --Main Stuff--
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
 Bypass = "death"
 loadstring(game:GetObjects("rbxassetid://5325226148")[1].Source)()
 for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
