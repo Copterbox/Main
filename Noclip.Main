@@ -1,4 +1,3 @@
-
 local Workspace = game:GetService("Workspace")
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
@@ -12,7 +11,7 @@ local Credit = Instance.new("TextLabel")
 local Plr = Players.LocalPlayer
 local Clipon = false
 
-Noclip.Name = "Noclip"
+Noclip.Name = "Noclip UI :3"
 Noclip.Parent = game.CoreGui
 
 BG.Name = "BG"
@@ -61,7 +60,7 @@ StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
 StatusPF.Size = UDim2.new(0, 56, 0, 20)
 StatusPF.Font = Enum.Font.Highway
 StatusPF.FontSize = Enum.FontSize.Size24
-StatusPF.Text = "Status"
+StatusPF.Text = "Status:"
 StatusPF.TextColor3 = Color3.new(1, 1, 1)
 StatusPF.TextSize = 20
 StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
@@ -76,7 +75,7 @@ Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
 Status.Size = UDim2.new(0, 56, 0, 20)
 Status.Font = Enum.Font.Highway
 Status.FontSize = Enum.FontSize.Size14
-Status.Text = " Off"
+Status.Text = "off"
 Status.TextColor3 = Color3.new(0.666667, 0, 0)
 Status.TextScaled = true
 Status.TextSize = 14
@@ -92,7 +91,7 @@ Credit.Position = UDim2.new(0.195238099, 0, 0.866141737, 0)
 Credit.Size = UDim2.new(0, 128, 0, 17)
 Credit.Font = Enum.Font.SourceSans
 Credit.FontSize = Enum.FontSize.Size18
-Credit.Text = "Meow :3"
+Credit.Text = "Simple Noclip UI :O"
 Credit.TextColor3 = Color3.new(1, 1, 1)
 Credit.TextSize = 16
 Credit.TextStrokeColor3 = Color3.new(0.196078, 0.196078, 0.196078)
@@ -100,9 +99,9 @@ Credit.TextStrokeTransparency = 0
 Credit.TextWrapped = true
 
 Toggle.MouseButton1Click:connect(function()
-	if Status.Text == " Off" then
+	if Status.Text == "off" then
 		Clipon = true
-		Status.Text = "  On"
+		Status.Text = "on"
 		Status.TextColor3 = Color3.new(0,185,0)
 		Stepped = game:GetService("RunService").Stepped:Connect(function()
 			if not Clipon == false then
@@ -116,9 +115,9 @@ Toggle.MouseButton1Click:connect(function()
 				Stepped:Disconnect()
 			end
 		end)
-	elseif Status.Text == " On" then
+	elseif Status.Text == "on" then
 		Clipon = false
-		Status.Text = " Off"
+		Status.Text = "off"
 		Status.TextColor3 = Color3.new(170,0,0)
 	end
 end)
