@@ -11,7 +11,7 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	})
 end
  
-Msgreq("Notifyer","Death Note Executed!",5,nil)
+Msgreq("Notifier","Death Note Executed!",5,nil)
 
 --Made by Hirari_Tear edited by average Growtopia animator, credits to expro for the GUI--
 
