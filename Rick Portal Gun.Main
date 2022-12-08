@@ -11,7 +11,7 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	})
 end
  
-Msgreq("Notifyer","Rick Portal Gun Executed!",5,nil)
+Msgreq("Notifier","Rick Portal Gun Executed!",5,nil)
 
 function make_portal_gun_and_GUI()
 	portal_gun = Instance.new("Tool")
