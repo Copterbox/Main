@@ -1,10 +1,15 @@
-for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
-game:GetService("RunService").Heartbeat:connect(function()
-v.Velocity = Vector3.new(0,35,0)
-wait(0.5)
-end)
-end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Copterbox/Main/main/Netless.Main"))()local NotificationBindable = Instance.new("BindableFunction")
+local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
+	game.StarterGui:SetCore("SendNotification", {
+		Title = Title;
+		Text = Text;
+		Icon = "";
+		Duration = Duration;
+		Button1 = Button1Text;
+		Button2 = nil;
+		Callback = NotificationBindable;
+	})
 end
 
 local SongID = "http://www.roblox.com/asset/?id=198665867"
@@ -909,7 +914,7 @@ if Tail ~= nil then
 
 else
 	TailWeld = Instance.new("Weld",workspace)
-	Msgreq("FE Neko Anims V1.6","Loading Without Tail Accessory (Check top of script for the accessory)",5,nil)
+
 end
 local TC0 = TailWeld.C0 * CFrame.new(0,0,0.4)
 local Song = Instance.new("Sound",RootPart)
