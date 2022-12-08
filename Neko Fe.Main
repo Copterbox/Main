@@ -12,6 +12,7 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	})
 end
 
+Msgreq("Notifier","Neko Animation Executed! Please wait while it is loading.",5,nil)
 local SongID = "http://www.roblox.com/asset/?id=198665867"
 Bypass = "death"
 if not Bypass then Bypass = "limbs" end
@@ -914,7 +915,7 @@ if Tail ~= nil then
 
 else
 	TailWeld = Instance.new("Weld",workspace)
-
+	
 end
 local TC0 = TailWeld.C0 * CFrame.new(0,0,0.4)
 local Song = Instance.new("Sound",RootPart)
@@ -1168,6 +1169,7 @@ local Anim = "Idle"
 
 
 Humanoid.WalkSpeed = 20
+Msgreq("Notifier","Neko Animations Loaded",5,nil)
 while true do
 	swait()
 	hitfloor = rayCast(RootPart.Position, CFrame.new(RootPart.Position, RootPart.Position - Vector3.new(0, 0.5, 0)).lookVector, 4, CloneChar)
