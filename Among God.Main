@@ -11,7 +11,7 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	})
 end
 
-Msgreq("Notifyer","Amongus God Executed! Keyblind : F, uhh forgor 💀",5,nil)
+Msgreq("Notifier","Amongus God Executed! Keyblind : F, uhh forgor 💀",5,nil)
 
 _G.objs = {}
 
