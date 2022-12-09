@@ -4,7 +4,7 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	game.StarterGui:SetCore("SendNotification", {
 		Title = Title;
 		Text = Text;
-		Icon = "";
+		Icon = "rbxthumb://type=Asset&id=7969699183&w=150&h=150";
 		Duration = Duration;
 		Button1 = Button1Text;
 		Button2 = nil;
@@ -12,4 +12,4 @@ local Msgreq = function(Title,Text,Duration,Button1Text,Button2Text)
 	})
 end
  
-Msgreq("Synapse X","Synapse X Rip Off UI Deleted!",5,nil)
+Msgreq("Synapse X","Synapse X UI Deleted!",5,nil)
