@@ -8,7 +8,7 @@ Holder.Name = "ESP"
 
 local Box = Instance.new("BoxHandleAdornment")
 Box.Name = "nilBox"
-Box.Size = Vector3.new(1, 2, 1)
+Box.Size = Vector3.new(4, 6, 4)
 Box.Color3 = Color3.new(100 / 255, 100 / 255, 100 / 255)
 Box.Transparency = 0.7
 Box.ZIndex = 0
