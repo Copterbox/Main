@@ -387,6 +387,7 @@ local function EUQVUYQ_fake_script() -- WindowTab.WindowTab
 	end)
 	minimized.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.Enabled = false
+		Msgreq("Synapse X","Synapse X UI hided, Press 'Q' to Reopen the UI.",2.5,nil)
 	end)
 	
 	local function playAnim()
@@ -406,9 +407,10 @@ local function EUQVUYQ_fake_script() -- WindowTab.WindowTab
 	end
 	
 	game:GetService("UserInputService").InputBegan:Connect(function(input)
-		if input.KeyCode == Enum.KeyCode.F7 then
+		if input.KeyCode == Enum.KeyCode.Q then
 			script.Parent.Parent.Parent.Enabled = not script.Parent.Parent.Parent.Enabled
 			playAnim()
+			Msgreq("Synapse X","Synapse X UI Reopened!",2.5,nil)
 		end
 	end)
 	
