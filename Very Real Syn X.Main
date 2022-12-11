@@ -378,7 +378,7 @@ local function EUQVUYQ_fake_script() -- WindowTab.WindowTab
 	local close = script.Parent.Close
 	local minimized = script.Parent.Minimize
 	local title = script.Parent.Title
-	local version = game.HttpService:JSONDecode(game:HttpGet("https://api.whatexploitsare.online/status"))[1].Synapse.exploit_version
+	local version = "Version 1 (Alpha)"
 	
 	_G.version = version
 	
@@ -387,7 +387,6 @@ local function EUQVUYQ_fake_script() -- WindowTab.WindowTab
 	end)
 	minimized.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.Enabled = false
-		Msgreq("Synapse X","Synapse X UI hided, Press 'Q' to Reopen the UI.",2.5,nil)
 	end)
 	
 	local function playAnim()
@@ -410,7 +409,6 @@ local function EUQVUYQ_fake_script() -- WindowTab.WindowTab
 		if input.KeyCode == Enum.KeyCode.Q then
 			script.Parent.Parent.Parent.Enabled = not script.Parent.Parent.Parent.Enabled
 			playAnim()
-			Msgreq("Synapse X","Synapse X UI Reopened!",2.5,nil)
 		end
 	end)
 	
