@@ -7,7 +7,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
         if true then
             OrionLib:MakeNotification({
                 Name = "Notification",
-                Content = "Noclip Enable",
+                Content = "Noclip Enabled!",
                 Image = "rbxassetid://8569322835",
                 Time = 5
             })
@@ -27,7 +27,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
             if true then
                 OrionLib:MakeNotification({
                     Name = "Notification",
-                    Content = "Noclip Disable",
+                    Content = "Noclip Disabled!",
                     Image = "rbxassetid://8569322835",
                     Time = 5
                 })
@@ -40,7 +40,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
         end) tool.Parent = game.Players.LocalPlayer.Backpack
         OrionLib:MakeNotification({
             Name = "Notification",
-            Content = "Noclip Executed!",
+            Content = "Noclip Executed! If you use the Tools and it doesn't work then try again.",
             Image = "rbxassetid://8569322835",
             Time = 5
         })
