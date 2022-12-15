@@ -1,0 +1,46 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+        mouse = game.Players.LocalPlayer:GetMouse()
+        tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = ("Equip To Noclip")
+        tool.Activated:Connect(function()
+        if true then
+            OrionLib:MakeNotification({
+                Name = "Notification",
+                Content = "Noclip Enable",
+                Image = "rbxassetid://8569322835",
+                Time = 5
+            })
+        end
+        while true do
+                game:GetService("RunService").Stepped:wait()
+                game.Players.LocalPlayer.Character.Head.CanCollide = false
+                game.Players.LocalPlayer.Character.Torso.CanCollide = false
+        end
+        end) tool.Parent = game.Players.LocalPlayer.Backpack
+        
+        mouse = game.Players.LocalPlayer:GetMouse()
+        tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = ("Equip To UnNoclip")
+        tool.Activated:Connect(function()
+            if true then
+                OrionLib:MakeNotification({
+                    Name = "Notification",
+                    Content = "Noclip Disable",
+                    Image = "rbxassetid://8569322835",
+                    Time = 5
+                })
+            end
+        while true do
+                game:GetService("RunService").Stepped:wait()
+                game.Players.LocalPlayer.Character.Head.CanCollide = true
+                game.Players.LocalPlayer.Character.Torso.CanCollide = true
+        end
+        end) tool.Parent = game.Players.LocalPlayer.Backpack
+        OrionLib:MakeNotification({
+            Name = "Notification",
+            Content = "Noclip Executed!",
+            Image = "rbxassetid://8569322835",
+            Time = 5
+        })
