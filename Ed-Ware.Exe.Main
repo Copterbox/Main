@@ -1,0 +1,338 @@
+--- Orion Msg ---
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+--- Required Game ---
+if game.PlaceId == 10875701453 then
+    OrionLib:MakeNotification({
+		Name = "Ed-Ware",
+		Content = "Correct Game! , now loading Ed-Ware...",
+		Image = "rbxassetid://8569322835",
+		Time = 5
+	})
+	wait(5)
+	--- Edware Da Man-Eating Train Script ---
+local Player = game.Players.LocalPlayer
+plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+--- Libary Setup ---
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+	Name = "Ed-Ware",
+	LoadingTitle = "Ed-Ware Made By Random_Nub#3349",
+	LoadingSubtitle = "Libary Used RayField",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "Ed-Ware Configuration Folder",
+		FileName = "Ed-Ware Configuration File"
+	}
+})
+--- Msg ---
+Rayfield:Notify({
+    Title = "Ed-Ware Notification",
+    Content = "Hewo "..Player.Name..", Thank for using the Script!",
+    Duration = 5,
+    Image = 8569322835,
+})
+--- Main ---
+local Tab = Window:CreateTab("Main", 4483362458)
+local Section = Tab:CreateSection("Main Tab, Self Explaining and the Whole Point of the Script")
+local Section = Tab:CreateSection("How to Not Die")
+local Button = Tab:CreateButton({
+	Name = "No Ground Kill Part",
+	Callback = function()
+		game:GetService("Workspace").ScrollingTerrainBounds.Ground:Destroy()
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "No Ground Kill Part Activated! You can't Disable this By The Way.",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Safety Barrier",
+	CurrentValue = false,
+	Flag = "SafetyBarrier",
+	Callback = function(bool)
+		shared.toggleSafeBarr = bool
+		if shared.toggleSafeBarr == true then 
+			SafteyTrainPart = Instance.new("Part",Workspace)
+			SafteyTrainPart.Name = "SafteyTrainPart"
+			SafteyTrainPart.CFrame = game:GetService("Workspace").Railcars["Railcar_Locomotive_1"].PrimaryPart.CFrame
+			SafteyTrainPart.Anchored = true 
+			SafteyTrainPart.Size = Vector3.new(1000,1.2,1500)
+			SafteyTrainPart.Material = "SmoothPlastic"
+			SafteyTrainPart.Transparency = 0.4
+		end
+		if shared.toggleSafeBarr == false then 
+			for i,v in pairs (game.Workspace:GetChildren()) do 
+				if v.Name == "SafteyTrainPart" then 
+					game.Workspace[v.Name]:Destroy()
+            end 
+        end 
+    end 
+end
+})
+local Section = Tab:CreateSection("Edward Troller 1000")
+local Toggle = Tab:CreateToggle({
+	Name = "Ride Edware ;)",
+	CurrentValue = false,
+	Flag = "EdwardIsSad",
+	Callback = function(bool)
+		shared.toggleRideEd = bool
+        spawn(function()
+        while shared.toggleRideEd == true do 
+            wait()
+            plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            game.Players.LocalPlayer.Character.Humanoid.Sit = true 
+            plyr.CFrame = game:GetService("Workspace").Multipods.Multipod.MultipodRootPart.CFrame + Vector3.new(0,10,0)
+            
+        end
+        if shared.toggleRideEd == false then 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            game.Players.LocalPlayer.Character.Humanoid.Sit = false
+        end
+    end)
+	end,
+})
+local Section = Tab:CreateSection("Teleport Stuff")
+local Button = Tab:CreateButton({
+	Name = "Teleport to Spawn",
+	Callback = function()
+		plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+		plyr.CFrame = CFrame.new(-24.0866203, 154.507507, 49.2347412, 0.0127701936, 9.60000168e-09, -0.999918461, 3.39239858e-09, 1, 9.64410951e-09, 0.999918461, -3.51527918e-09, 0.0127701936)
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "Teleported to Spawn!",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Teleport to Train",
+	Callback = function()
+		plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+		for i,v in pairs (game:GetService("Workspace").Railcars:GetDescendants()) do 
+			if v.Name == "PrimaryPart" and v.Parent ~= "Railcar_Locomotive_1" then 
+				CartParent = v.Parent
+				plyr.CFrame = game.Workspace.Railcars[tostring(CartParent)].PrimaryPart.CFrame + Vector3.new(0,5,0)
+			end 
+		end 
+	end,
+})
+local Section = Tab:CreateSection("Change Team")
+local Button = Tab:CreateButton({
+	Name = "Station",
+	Callback = function()
+		game.Players.LocalPlayer.TeamColor = game:GetService("Teams").Station.TeamColor
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "Team Changed to Station!",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Train",
+	Callback = function()
+		game.Players.LocalPlayer.TeamColor = game:GetService("Teams").Train.TeamColor
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "Team Changed to Train!",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Section = Tab:CreateSection("Player Stuff")
+local Toggle = Tab:CreateToggle({
+	Name = "Infinite Stamina",
+	CurrentValue = false,
+	Flag = "InfiniteStamina",
+	Callback = function(bool)
+		shared.toggleSta = bool
+		spawn(function()
+			while shared.toggleSta == true do
+				wait()
+				game.Players.LocalPlayer.Character["IntValue_Stamina"].Value = 100
+			end
+		end)
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Infinite Health",
+	CurrentValue = false,
+	Flag = "InfiniteHealth",
+	Callback = function(bool)
+		shared.toggleHp = bool
+		spawn(function()
+			while shared.toggleHp == true do
+				wait()
+				game.Players.LocalPlayer.Character.Humanoid.Health = 100
+			end
+		end)
+	end,
+})
+local Toggle = Tab:CreateToggle({
+	Name = "Infinite Ammo",
+	CurrentValue = false,
+	Flag = "InfiniteAmmo",
+	Callback = function(bool)
+		shared.toggleAmmo = bool
+		spawn(function()
+		while shared.toggleAmmo == true do 
+		wait()
+		for i,v in pairs (game.Players.LocalPlayer.Character:GetDescendants()) do
+			if v.Name == "IntValue_CurrentMagazine" then 
+				game.Players.LocalPlayer.Character[tostring(v.Parent)]["IntValue_CurrentMagazine"].Value = 12
+			end
+		end
+    end
+end)
+end
+})
+--- Local Player ---
+local Tab = Window:CreateTab("Local Player", 4483362458)
+local Section = Tab:CreateSection("Local Player Tab, Self Explaining")
+local WSChanger = Tab:CreateSlider({
+	Name = "WalkSpeed Changer",
+	Range = {0, 500},
+	Increment = 1,
+	Suffix = "WalkSpeed",
+	CurrentValue = 16,
+	Flag = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end,
+})
+local JPChanger = Tab:CreateSlider({
+	Name = "JumpPower Changer",
+	Range = {0, 500},
+	Increment = 1,
+	Suffix = "JumpPower",
+	CurrentValue = 50,
+	Flag = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end,
+})
+local GChanger = Tab:CreateSlider({
+	Name = "Gravity Changer",
+	Range = {0, 500},
+	Increment = 1,
+	Suffix = "Gravity",
+	CurrentValue = 50,
+	Flag = "G",
+	Callback = function(Value)
+		workspace.Gravity = Value
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Reset all changed Stats to Default",
+	Callback = function()
+		WSChanger:Set(16)
+		JPChanger:Set(50)
+		GChanger:Set(197)
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "All changed Stats is Reseted to Default!",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Section = Tab:CreateSection("Misc Section, Self Explaining")
+local Toggle = Tab:CreateToggle({
+	Name = "Infinite Jump",
+	CurrentValue = false,
+	Flag = "InfState",
+	Callback = function(state)
+		if state then
+            _G.infinjump = true
+            local Player = game:GetService("Players").LocalPlayer
+            local Mouse = Player:GetMouse()
+            Mouse.KeyDown:connect(function(k)
+            if _G.infinjump then
+            if k:byte() == 32 then
+            Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            Humanoid:ChangeState("Jumping")
+            wait(0.1)
+            Humanoid:ChangeState("Seated")
+            end
+            end
+            end)
+            local Player = game:GetService("Players").LocalPlayer
+            local Mouse = Player:GetMouse()
+                else
+            if _G.infinjump == true then
+            _G.infinjump = false
+            else
+            _G.infinjump = true
+            end
+            end
+	end
+})
+local Button = Tab:CreateButton({
+	Name = "Noclip",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Copterbox/Main/main/idkplzhelp"))()
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Click Teleport",
+	Callback = function()
+		local Plr = game:GetService("Players").LocalPlayer
+		local Mouse = Plr:GetMouse()
+		
+		Mouse.Button1Down:connect(
+		   function()
+			   if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+				   return
+			   end
+			   if not Mouse.Target then
+				   return
+			   end
+			   Plr.Character:MoveTo(Mouse.Hit.p)
+		   end
+		)
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "Click Teleport Executed! Press 'LeftControl' and Click Where you want to Teleport.",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+--- Setting ---
+local Tab = Window:CreateTab("Etc...", 4483362458)
+local Section = Tab:CreateSection("Etc Tab, Self Explaining")
+local Paragraph = Tab:CreateParagraph({Title = "Creater Credit :3", Content = "Random_Nub#3349"})
+local Paragraph = Tab:CreateParagraph({Title = "Main Libary Credit :3", Content = "RayFIeld Libary"})
+local Paragraph = Tab:CreateParagraph({Title = "Game Check Msg :3", Content = "Orion Libary"})
+local Button = Tab:CreateButton({
+	Name = "Other Funny Edware Script",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Copterbox/Main/main/Edware.Exe.2"))()
+		Rayfield:Notify({
+			Title = "Ed-Ware Notification",
+			Content = "Other Funny Edware Script Executed!",
+			Duration = 5,
+			Image = 8569322835,
+		})
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Destroy Interface",
+	Callback = function()
+		Rayfield:Destroy()
+	end,
+})
+else
+	OrionLib:MakeNotification({
+		Name = "Ed-Ware",
+		Content = "Sorry, This Script is only meant for 'Edward the Man-Eating Train' and not other game!",
+		Image = "rbxassetid://8569322835",
+		Time = 5
+	})
+end
