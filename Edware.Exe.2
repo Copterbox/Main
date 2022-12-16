@@ -1,0 +1,317 @@
+-- if you post this give credit to wyoott i really dont care if you post or edit the script just give credit 
+-- my Yt is https://www.youtube.com/channel/UCP_zLKkSsI9KbDQyC40GLLQ
+
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+local w2 = library:CreateWindow("TheRizzardOfOz") 
+local w = library:CreateWindow("KillEdwardThings")
+
+local b2 = w2:CreateFolder("MadeByWyoott")
+local b = w:CreateFolder("MadeByWyoott")
+
+
+plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+
+
+
+
+
+local function OneTapEdward()
+    Player = game.Players.LocalPlayer
+    enemyCFrame = game:GetService("Workspace").Multipods.Multipod.MultipodRootPart
+game:GetService("Players").LocalPlayer.Backpack["Weapon_SP1911"].Parent = Player.Character
+
+enemyRootPartX = enemyCFrame.CFrame.X
+enemyRootPartY = enemyCFrame.CFrame.Y
+enemyRootPartZ = enemyCFrame.CFrame.Z
+
+local args = {
+    [1] = 1,
+    [2] = Vector3.new(enemyRootPartX,enemyRootPartY,enemyRootPartZ),
+    [3] = Vector3.new(0.4023076295852661, 0.1975456178188324, -0.8939374685287476),
+    [4] = 500,
+    [5] = 3.0996455423969427,
+    [6] = game:GetService("Players").LocalPlayer.Character.Weapon_SP1911.Handle.Attachment_Muzzle,
+    [7] = 1,
+    [8] = 0,
+    [9] = {
+        ["MaxDamageRange"] = math.huge,
+        ["MaxDamage"] = 100000,
+        ["MinDamageRange"] = 80,
+        ["MinDamage"] = 100000,
+        ["CriticalMultiplier"] = 5
+    }
+}
+
+game:GetService("ReplicatedStorage").Weapons_ReplicatedStorage.RemoteEvent_ShootFastCastProjectile:FireServer(unpack(args))
+
+game:GetService("Players").LocalPlayer.Character["Weapon_SP1911"].Parent = Player.Backpack    
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+b:Label("SP1911 Only",{
+    TextSize = 25; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
+b:Toggle("AutoFarm",function(bool)
+    shared.toggleAutoFarm = bool
+    local localplyr = game.Players.LocalPlayer
+    
+    spawn(function()
+         if shared.toggleAutoFarm == false then 
+            game.Workspace.SaftyPart:Destroy()    
+        end
+    if shared.toggleAutoFarm == true then
+            plyr.CFrame = plyr.CFrame + Vector3.new(0,500,0)
+            SaftyPart = Instance.new("Part",Workspace)
+            SaftyPart.Name = "SaftyPart"
+            SaftyPart.CFrame = plyr.CFrame - Vector3.new(0,10,0)
+            SaftyPart.Anchored = true 
+            SaftyPart.Material = "SmoothPlastic"
+            SaftyPart.Transparency = 0.8
+            SaftyPart.Size = Vector3.new(10,1.2,10)
+    end
+        spawn(function()
+        while shared.toggleAutoFarm == true do 
+            wait()
+            plyr.CFrame = game.Workspace.SaftyPart.CFrame + Vector3.new(0,4,0)
+        end
+        end)
+       spawn(function()
+        while shared.toggleAutoFarm == true do 
+            local success, err = pcall(function()
+            wait()
+            while game:GetService("Workspace").Multipods.Multipod.Health.Value > 0 do 
+                wait()
+                OneTapEdward()
+                    end
+                end)
+            end
+        end)
+    end)
+end)
+
+DpsSelected = 100
+
+b:Slider("Damage",{
+    min = 1; 
+    max = 500; 
+    precise = false;
+},function(value)
+    DpsSelected = value
+end)
+
+
+
+b:Toggle("DamageEdward^",function(bool)
+    shared.toggleDamageEd = bool
+    spawn(function()
+    while shared.toggleDamageEd == true do 
+        Player = game.Players.LocalPlayer
+        wait(0.01)
+
+
+
+
+enemyCFrame = game:GetService("Workspace").Multipods.Multipod.MultipodRootPart
+game:GetService("Players").LocalPlayer.Backpack["Weapon_SP1911"].Parent = Player.Character
+
+enemyX = enemyCFrame.CFrame.X
+enemyY = enemyCFrame.CFrame.Y
+enemyZ = enemyCFrame.CFrame.Z
+
+local args = {
+    [1] = 1,
+    [2] = Vector3.new(enemyX,enemyY,enemyZ),
+    [3] = Vector3.new(0.4023076295852661, 0.1975456178188324, -0.8939374685287476),
+    [4] = 500,
+    [5] = 3.0996455423969427,
+    [6] = game:GetService("Players").LocalPlayer.Character.Weapon_SP1911.Handle.Attachment_Muzzle,
+    [7] = 1,
+    [8] = 0,
+    [9] = {
+        ["MaxDamageRange"] = 10000,
+        ["MaxDamage"] = DpsSelected,
+        ["MinDamageRange"] = 80,
+        ["MinDamage"] = DpsSelected,
+        ["CriticalMultiplier"] = 5
+    }
+}
+
+game:GetService("ReplicatedStorage").Weapons_ReplicatedStorage.RemoteEvent_ShootFastCastProjectile:FireServer(unpack(args))
+
+game:GetService("Players").LocalPlayer.Character["Weapon_SP1911"].Parent = Player.Backpack    
+    end 
+end)
+end)
+
+-- Script made by Wyoott
+
+
+b:Button("OneTapEdward",function()
+    OneTapEdward()
+end)
+
+
+b2:Label("Misc",{
+    TextSize = 25; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
+b2:Button("Anti-Afk",function()
+    local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+end)
+
+-- Script made by Wyoott
+b2:Button("TpTrain",function()
+    plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+    for i,v in pairs (game:GetService("Workspace").Railcars:GetDescendants()) do 
+        if v.Name == "PrimaryPart" and v.Parent ~= "Railcar_Locomotive_1" then 
+            CartParent = v.Parent
+            plyr.CFrame = game.Workspace.Railcars[tostring(CartParent)].PrimaryPart.CFrame + Vector3.new(0,5,0)
+        end 
+    end 
+end)
+
+
+b2:Button("TpSpawn",function()
+    plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+    plyr.CFrame = CFrame.new(-24.0866203, 154.507507, 49.2347412, 0.0127701936, 9.60000168e-09, -0.999918461, 3.39239858e-09, 1, 9.64410951e-09, 0.999918461, -3.51527918e-09, 0.0127701936)
+end)
+
+b2:Button("NoGroundKillPart",function()
+	game:GetService("Workspace").ScrollingTerrainBounds.Ground:Destroy()
+end)
+
+-- Script made by Wyoott
+b2:Toggle("Safety Barrier",function(bool)
+    shared.toggleSafeBarr = bool
+    if shared.toggleSafeBarr == true then 
+        SafteyTrainPart = Instance.new("Part",Workspace)
+        SafteyTrainPart.Name = "SafteyTrainPart"
+        SafteyTrainPart.CFrame = game:GetService("Workspace").Railcars["Railcar_Locomotive_1"].PrimaryPart.CFrame
+        SafteyTrainPart.Anchored = true 
+        SafteyTrainPart.Size = Vector3.new(1000,1.2,1500)
+        SafteyTrainPart.Material = "SmoothPlastic"
+        SafteyTrainPart.Transparency = 0.4
+    end
+    if shared.toggleSafeBarr == false then 
+        for i,v in pairs (game.Workspace:GetChildren()) do 
+            if v.Name == "SafteyTrainPart" then 
+                game.Workspace[v.Name]:Destroy()
+            end 
+        end 
+    end 
+end)
+
+
+-- Script made by Wyoott
+b2:Toggle("InfStamina",function(bool)
+    shared.toggleSta = bool
+    spawn(function()
+        while shared.toggleSta == true do
+            wait()
+            game.Players.LocalPlayer.Character["IntValue_Stamina"].Value = 100
+        end
+    end)
+end)
+
+b2:Toggle("InfHealth",function(bool)
+    shared.toggleHp = bool
+    spawn(function()
+        while shared.toggleHp == true do
+            wait()
+            game.Players.LocalPlayer.Character.Humanoid.Health = 100
+        end
+    end)
+end)
+-- Script made by Wyoott
+b2:Toggle("InfAmmo",function(bool)
+    shared.toggleAmmo = bool
+    spawn(function()
+    while shared.toggleAmmo == true do 
+    wait()
+    for i,v in pairs (game.Players.LocalPlayer.Character:GetDescendants()) do
+        if v.Name == "IntValue_CurrentMagazine" then 
+            game.Players.LocalPlayer.Character[tostring(v.Parent)]["IntValue_CurrentMagazine"].Value = 12
+        end 
+    end
+end
+end)
+end)
+
+b2:Toggle("RideEdward ;)",function(bool)
+    shared.toggleRideEd = bool
+        spawn(function()
+        while shared.toggleRideEd == true do 
+            wait()
+            plyr = game.Players.LocalPlayer.Character.HumanoidRootPart
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            game.Players.LocalPlayer.Character.Humanoid.Sit = true 
+            plyr.CFrame = game:GetService("Workspace").Multipods.Multipod.MultipodRootPart.CFrame + Vector3.new(0,10,0)
+            
+        end
+        if shared.toggleRideEd == false then 
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            game.Players.LocalPlayer.Character.Humanoid.Sit = false
+        end
+    end)
+end)
+-- Script made by Wyoott
+b2:Slider("WalkSpeed",{
+    min = 10; -- min value of the slider
+    max = 500; -- max value of the slider
+    precise = false; -- max 2 decimals
+},function(value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+
+b2:Slider("JumpPower",{
+    min = 10; -- min value of the slider
+    max = 500; -- max value of the slider
+    precise = false; -- max 2 decimals
+},function(value)
+    while game.Players.LocalPlayer.Character.Humanoid.JumpPower ~= value do
+        wait()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+     end 
+end)
+-- Script made by Wyoott
+b2:Label("Teams",{
+    TextSize = 25; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
+
+b2:Button("Train",function()
+    game.Players.LocalPlayer.TeamColor = game:GetService("Teams").Train.TeamColor
+end)
+
+-- Script made by Wyoott
+b2:Button("Station",function()
+    game.Players.LocalPlayer.TeamColor = game:GetService("Teams").Station.TeamColor
+end)
+
