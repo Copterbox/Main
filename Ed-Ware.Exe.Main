@@ -4,7 +4,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 if game.PlaceId == 10875701453 then
     OrionLib:MakeNotification({
 		Name = "Ed-Ware",
-		Content = "Correct Game! , now loading Ed-Ware...",
+		Content = "Correct Game! Now loading Ed-Ware, Please wait...",
 		Image = "rbxassetid://8569322835",
 		Time = 5
 	})
